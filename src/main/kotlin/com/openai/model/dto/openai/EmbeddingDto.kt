@@ -1,7 +1,13 @@
-package com.openai.model.dto.openai.response
+package com.openai.model.dto.openai
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
+
+
+data class EmbeddingRequestDto (
+        val model: String,
+        val input: List<String>,
+)
 
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy::class)
 data class EmbeddingResponseDto(
@@ -13,7 +19,7 @@ data class EmbeddingResponseDto(
 
     data class EmbeddingVo(
             val `object`: String?,
-            val embedding: FloatArray, // lateinit 대신 직접 선언
+            val embedding: FloatArray,
             val index: Int?
     )
 
