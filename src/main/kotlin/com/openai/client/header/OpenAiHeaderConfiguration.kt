@@ -1,4 +1,4 @@
-package com.openai.client
+package com.openai.client.header
 
 import feign.RequestInterceptor
 import feign.RequestTemplate

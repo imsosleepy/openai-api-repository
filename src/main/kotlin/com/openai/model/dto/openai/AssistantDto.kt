@@ -2,7 +2,7 @@ package com.openai.model.dto.openai
 
 import com.fasterxml.jackson.annotation.JsonInclude
 
-data class AssistantDto(
+data class AssistantResponseDto(
         val id: String?,
         val `object`: String?,
         val createdAt: Long,
