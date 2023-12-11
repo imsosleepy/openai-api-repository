@@ -15,7 +15,6 @@ class OpenAiService (
     val chatModel: String = "gpt-3.5-turbo-1106"
 
     fun createEmbedding(message: String) : ResponseEntity<Any> {
-
         val embeddingResult = openAiFeignClient.createEmbedding(EmbeddingRequestDto(
                 model = embeddingModel,
                 input = listOf(message)
@@ -24,7 +23,7 @@ class OpenAiService (
     }
 
     fun chatCompletion(message: String) : ResponseEntity<Any> {
-        val o = RequestChatDto(
+        val chatResult = openAiFeignClient.chatCompletion(RequestChatDto(
                 model = chatModel,
                 messages = listOf(
                         RequestChatDto.ChatMessageVo("system", "You are chat bot. Only use Korean."),
@@ -32,8 +31,7 @@ class OpenAiService (
                 maxTokens = 300,
                 temperature = 0.1,
                 stream = false
-        )
-        val chatResult = openAiFeignClient.chatCompletion(o)
+        ))
         return ResponseEntity.ok(chatResult)
     }
 }

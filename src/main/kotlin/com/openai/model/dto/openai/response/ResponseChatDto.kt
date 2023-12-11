@@ -22,7 +22,7 @@ data class ResponseChatDto(
     @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy::class)
     data class ChatCompletionChoiceVo(
             val index: Int?,
-            val delta: ChatMessageVo?,
+            val message: ChatMessageVo?,
             val finishReason: String?
     )
 
