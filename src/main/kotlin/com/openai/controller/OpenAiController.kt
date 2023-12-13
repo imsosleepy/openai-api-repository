@@ -20,7 +20,7 @@ class OpenAiController(
 
     @PostMapping("/upload/file")
     fun uploadFile(@ModelAttribute fileRequestDto: FileRequestDto)
-            : ResponseEntity<Any> = openAiService.uploadFile(fileRequestDto.file)
+            : ResponseEntity<Any> = openAiService.uploadFile(fileRequestDto)
 
     @PostMapping("/chat")
     fun chatCompletion(@RequestBody messageRequestDto: MessageRequestDto)
