@@ -1,8 +1,8 @@
 package com.openai.controller
 
+import com.openai.model.dto.AssistantCreateRequestDto
 import com.openai.model.dto.CreateMessageRequestDto
 import com.openai.model.dto.CreateRunsRequestDto
-import com.openai.model.dto.openai.AssistantCreateRequestDto
 import com.openai.service.AssistantService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
