@@ -1,6 +1,7 @@
 package com.openai.controller
 
 import com.openai.model.dto.openai.AssistantCreateRequestDto
+import com.openai.model.dto.openai.FileRequestDto
 import com.openai.model.dto.openai.MessageRequestDto
 import com.openai.service.AssistantService
 import com.openai.service.OpenAiService
@@ -11,6 +12,10 @@ import org.springframework.web.bind.annotation.*
 class OpenAiController(
         private val openAiService: OpenAiService
 ) {
+    @PostMapping("/upload/file")
+    fun uploadFile(@ModelAttribute fileRequestDto: FileRequestDto)
+            : ResponseEntity<Any> = openAiService.uploadFile(fileRequestDto.file)
+
     @PostMapping("/embedding")
     fun createEmbedding(@RequestBody messageRequestDto: MessageRequestDto)
             : ResponseEntity<Any> = openAiService.createEmbedding(messageRequestDto.message)

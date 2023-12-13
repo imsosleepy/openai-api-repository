@@ -6,6 +6,7 @@ import com.openai.model.dto.openai.EmbeddingRequestDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.web.multipart.MultipartFile
 
 @Service
 class OpenAiService(
@@ -44,5 +45,13 @@ class OpenAiService(
         }
     }
 
+    fun uploadFile(file: MultipartFile): ResponseEntity<Any> {
+        return try {
+            val uploadResult = openAiFeignClient.uploadFile(file, "assistants")
+            ResponseEntity.ok(uploadResult)
+        } catch (e: Exception) {
+            ResponseEntity(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
 
 }

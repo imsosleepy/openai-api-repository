@@ -2,7 +2,6 @@ package com.openai.controller
 
 import com.openai.model.dto.CreateMessageRequestDto
 import com.openai.model.dto.CreateRunsRequestDto
-import com.openai.model.dto.MessagesRequestDto
 import com.openai.model.dto.openai.AssistantCreateRequestDto
 import com.openai.service.AssistantService
 import org.springframework.http.ResponseEntity
